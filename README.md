@@ -1,24 +1,63 @@
-# README
+## users_テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column   | Type    | Options                   |
+| -------- | ------  | ------------------------- |
+| name     | string  | null: false               |
+| email    | string  | null: false, unique: true |
+| password | string  | null: false               |
 
-Things you may want to cover:
+### Association
 
-* Ruby version
+- belongs_to :target
+- has_many   :records
+- has_many   :rounds
 
-* System dependencies
 
-* Configuration
+## targets_テーブル
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user         | references | null: false, foreign_key: true |
+| target_score | integer    | null: false                    |
+| deadline     | date       | null: false                    |
 
-* Database creation
+### Association
 
-* Database initialization
+- belongs_to :user
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## rounds_テーブル
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| user       | references | null: false, foreign_key: true |
+| course     | string     | null: false                    |
+| round_memo | text       |                                |
+| round_date | date       | null: false                    |
 
-* Deployment instructions
+### Association
 
-* ...
+- belongs_to :user
+- has_one :score
+
+
+## records_テーブル
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| user        | references | null: false, foreign_key: true |
+| record_date | date       | null: false                    |
+| title       | string     | null: false                    |
+| record_memo | text       | null: false                    |
+
+### Association
+
+- belongs_to :user
+
+
+## scores_テーブル
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| user        | references | null: false, foreign_key: true |
+| hole_number | integer    | null: false                    |
+
+### Association
+
+- belongs_to :round
