@@ -1,0 +1,17 @@
+/* items/index.htmlの広告cssを所々使いまわしています。 */
+.footer {
+  width: 100vw;
+  padding: 5vh 0;
+  color: #FFF;
+  background-color: #4682B4;
+  text-align: center;
+}
+
+.logo-white {
+  width: 20vh;
+  vertical-align: bottom;
+}
+
+.footer>p {
+  font-size: 14px;
+}
