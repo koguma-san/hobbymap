@@ -1,0 +1,35 @@
+<h1>Golf</h1>
+
+<div>
+  <h2>目標スコア</h2>
+  <%# <% if current_user.scores.where(goal: true).any? %>  
+    <%# <% current_user.scores.where(goal: true).each do |score| %>
+      <%# <p><%= score.score %></p> 
+    <%# <% end %> 
+  <%# <% else %> 
+    <%# <p>目標スコアが設定されていません。</p>
+  <% end %>
+</div>
+
+<div>
+  <h2>ベストスコア</h2>
+  <%# <% if current_user.scores.any? %>
+    <%# <p><%= current_user.scores.order(score: :asc).first.score %></p> 
+  <%# <% else %>
+    <%# <p>ベストスコアが登録されていません。</p>
+  <% end %>  
+</div>
+
+<div>
+  <h2>練習日記</h2>
+  <%# <% if current_user.practices.any? %>
+    <%# <% current_user.practices.each do |practice| %>
+      <%# <div> %>
+        <%# <p><%= practice.created_at.strftime('%Y-%m-%d %H:%M') %></p>
+        <%# <p><%= practice.note %></p> 
+      <%# </div> 
+    <% end %> 
+  <%# <% else %> 
+    <%# <p>練習日記がありません。</p> %>
+  <%# <% end %>  
+</div> 
