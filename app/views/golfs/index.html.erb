@@ -1,35 +1,56 @@
-<h1>Golf</h1>
+<!DOCTYPE html>
+<html>
 
-<div>
-  <h2>目標スコア</h2>
-  <%# <% if current_user.scores.where(goal: true).any? %>  
-    <%# <% current_user.scores.where(goal: true).each do |score| %>
-      <%# <p><%= score.score %></p> 
-    <%# <% end %> 
-  <%# <% else %> 
-    <%# <p>目標スコアが設定されていません。</p>
-  <% end %>
-</div>
+<head>
+  <title>Golf Page</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
 
-<div>
-  <h2>ベストスコア</h2>
-  <%# <% if current_user.scores.any? %>
-    <%# <p><%= current_user.scores.order(score: :asc).first.score %></p> 
-  <%# <% else %>
-    <%# <p>ベストスコアが登録されていません。</p>
-  <% end %>  
-</div>
+<body>
+  <h1>Golf Page</h1>
+  <div class="header">
+    <%= link_to '目標スコア登録', new_target_path, class: 'btn btn-primary' %>
+    <%= link_to '練習メモ登録', new_record_path, class: 'btn btn-primary' %>
+  </div>
 
-<div>
-  <h2>練習日記</h2>
-  <%# <% if current_user.practices.any? %>
+  <!-- 目標スコア表示部分 -->
+  <div>
+    <h2>目標スコア</h2>
+    <%# <% if current_user.scores.where(goal: true).any? %>  
+      <%# <% current_user.scores.where(goal: true).each do |score| %>
+        <%# <p><%= score.score %></p> 
+      <%# <% end %> 
+    <%# <% else %> 
+      <%# <p>目標スコアが設定されていません。</p>
+    <% end %>
+  </div>
+
+  <!-- ベストスコア表示部分 -->
+  <div>
+    <h2>ベストスコア</h2>
+    <%# <% if current_user.scores.any? %>
+      <%# <p><%= current_user.scores.order(score: :asc).first.score %></p> 
+    <%# <% else %>
+      <%# <p>ベストスコアが登録されていません。</p>
+    <% end %>  
+  </div>
+
+  <!-- 練習日記表示部分 -->
+  <div>
+    <h2>練習日記</h2>
+    <%# <% if current_user.practices.any? %>
     <%# <% current_user.practices.each do |practice| %>
       <%# <div> %>
         <%# <p><%= practice.created_at.strftime('%Y-%m-%d %H:%M') %></p>
         <%# <p><%= practice.note %></p> 
       <%# </div> 
     <% end %> 
-  <%# <% else %> 
-    <%# <p>練習日記がありません。</p> %>
-  <%# <% end %>  
-</div> 
+    <%# <% else %> 
+      <%# <p>練習日記がありません。</p> %>
+    <%# <% end %>  
+  </div> 
+
+</body>
+</html>

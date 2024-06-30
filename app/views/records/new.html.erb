@@ -1,11 +1,33 @@
-<h1>New Practice</h1>
+<h1>練習記録登録</h1>
+<%= form_with(model: @record, local: true) do |form| %>
+  <% if @record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@record.errors.count, "error") %> prohibited this record from being saved:</h2>
 
-<%= form_with(model: [current_user, @records], local: true) do |form| %>
-  <div>
-    <%= form.label :note %>
-    <%= form.text_area :note %>
+      <ul>
+      <% @record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :record_date %>
+    <%= form.date_field :record_date %>
   </div>
-  <div>
-    <%= form.submit "Create Practice" %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :record_memo %>
+    <%= form.text_area :record_memo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
   </div>
 <% end %>
