@@ -2,8 +2,8 @@
 .footer {
   width: 100vw;
   padding: 5vh 0;
-  color: #FFF;
-  background-color: #4682B4;
+  color: #867666;
+  background-color: #D5C3AA;
   text-align: center;
 }
 
@@ -13,5 +13,5 @@
 }
 
 .footer>p {
-  font-size: 14px;
+  font-size: 20px;
 }
