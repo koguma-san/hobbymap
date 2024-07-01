@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :golfs  , only: [:index]
   resources :records, only: [:index, :new, :create]
   resources :targets, only: [:index, :new, :create]
+  resources :rounds, only: [:new, :create, :index, :show]
 end

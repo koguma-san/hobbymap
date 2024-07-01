@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   belongs_to :target
   has_many :records
+  has_many :rounds
 end
