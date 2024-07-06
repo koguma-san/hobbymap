@@ -21,16 +21,6 @@
 
 .lists-left {
   text-decoration: none;
-  display: flex;
-  min-width: 200px;
-
-}
-
-.logo{
-  text-decoration: none;
-  font-weight: bold;
-  margin-right: 3vw;
-  color: #333333;
 }
 
 .lists-right {

@@ -1,0 +1,94 @@
+
+.header {
+  background-color: #f1efe7;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.left-header {
+
+}
+
+.right-header {
+  display: flex;
+  list-style: none;
+  margin-right: 30px;
+}
+
+.btn-goal {
+  display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 100px;
+  margin: auto;
+	padding: 0.5rem 1.5rem;
+  font-weight: bold;
+	border: 2px solid #000000;
+	color: #000000;
+	transition: 0.5s;
+}
+
+.btn-goal:hover {
+  color: #fff;
+	background: #000000;
+}
+
+.btn-score {
+  display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 100px;
+  margin: auto;
+	padding: 0.5rem 1.5rem;
+  font-weight: bold;
+	border: 2px solid #000000;
+	color: #000000;
+	transition: 0.5s;
+}
+
+.btn-score:hover {
+  color: #fff;
+	background: #000000;
+}
+
+.btn-record {
+  display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 100px;
+  margin: auto;
+	padding: 0.5rem 1.5rem;
+  font-weight: bold;
+	border: 2px solid #000000;
+	color: #000000;
+	transition: 0.5s;
+}
+
+.btn-record:hover {
+  color: #fff;
+	background: #000000;
+}
+
+.golf-index {
+  background-color: #f1efe7;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0;
+}
+
+.golf-box {
+  background-color: #FFF;
+  width: 80vw;
+  min-width: 1200px;
+  padding: 10vh 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
