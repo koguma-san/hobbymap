@@ -1,4 +1,6 @@
 class RoundsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @round = Round.new
     score = @round.build_score

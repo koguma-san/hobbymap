@@ -73,17 +73,26 @@
 }
 
 
-.user-nickname {
+.user-name {
   text-decoration: none;
   margin-right: 3vw;
-  color: #333333;
+  color: #E1B80D;
   font-weight: bold;
 }
 
 
 .logout {
-  text-decoration: none;
-  color: #333333;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 120px;
+	margin-right: 10px;
+	padding: 1rem 3rem;
+	font-weight: bold;
+	border: 2px solid #E1B80D;
+	color: #E1B80D;
+	border-radius: 100vh;
+	transition: 0.5s;
 }
 
 .login {
