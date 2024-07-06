@@ -55,9 +55,21 @@
 ## scores_テーブル
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
-| user        | references | null: false, foreign_key: true |
-| hole_number | integer    | null: false                    |
+| round       | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :round
+- has_many :scoredetails
+
+
+## score_details_テーブル
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| score       | references | null: false, foreign_key: true |
+| hole_number | integer    | null: false                    |
+| strokes     | integer    | null: false                    |
+| putts       | integer    | null: false                    |
+| comments    | text       | null: false                    |
+
+- belongs_to :score

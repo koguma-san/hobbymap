@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_01_210937) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_04_212114) do
   create_table "records", charset: "utf8mb4", force: :cascade do |t|
     t.date "record_date", null: false
     t.string "title", null: false
@@ -29,6 +29,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_01_210937) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_rounds_on_user_id"
+  end
+
+  create_table "score_details", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "score_id", null: false
+    t.integer "hole_number", null: false
+    t.integer "strokes", null: false
+    t.integer "putts", null: false
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["score_id"], name: "index_score_details_on_score_id"
+  end
+
+  create_table "scores", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "round_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["round_id"], name: "index_scores_on_round_id"
   end
 
   create_table "targets", charset: "utf8mb4", force: :cascade do |t|
@@ -55,5 +73,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_01_210937) do
 
   add_foreign_key "records", "users"
   add_foreign_key "rounds", "users"
+  add_foreign_key "score_details", "scores"
+  add_foreign_key "scores", "rounds"
   add_foreign_key "targets", "users"
 end

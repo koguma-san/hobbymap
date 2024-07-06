@@ -1,21 +1,45 @@
 <h1>スコア登録ページ</h1>
-<%= form_with(model: @round, local: true) do |form| %>
+<%= form_with(model: @round, local: true) do |round_form| %>
   <div class="form-group">
-    <%= form.label :course, 'コース名' %>
-    <%= form.text_field :course, class: 'form-control' %>
+    <%= round_form.label :course, 'コース名' %>
+    <%= round_form.text_field :course, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :round_date, 'ラウンド日' %>
-    <%= form.date_field :round_date, class: 'form-control' %>
+    <%= round_form.label :round_date, 'ラウンド日' %>
+    <%= round_form.date_field :round_date, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :round_memo, 'メモ' %>
-    <%= form.text_area :round_memo, class: 'form-control' %>
+    <%= round_form.label :round_memo, 'メモ' %>
+    <%= round_form.text_area :round_memo, class: 'form-control' %>
   </div>
 
+  <%= round_form.fields_for :score do |score_form| %>
+    <% score_form.object.score_details.each_with_index do |score_detail, i| %>
+      <div class="form-group">
+        <%= score_form.label "ホール#{i + 1}のスコア" %>
+        <%= score_form.fields_for :score_details, score_detail do |detail_form| %>
+          <div class="form-group">
+            <%= detail_form.label :strokes, "スコア" %>
+            <%= detail_form.number_field :strokes, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= detail_form.label :putts, "パット数" %>
+            <%= detail_form.number_field :putts, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= detail_form.label :comments, "コメント" %>
+            <%= detail_form.text_area :comments, class: 'form-control' %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
   <div class="form-group">
-    <%= form.submit '登録', class: 'btn btn-primary' %>
+    <%= round_form.submit '登録', class: 'btn btn-primary' %>
   </div>
 <% end %>

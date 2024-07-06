@@ -1,10 +1,13 @@
 class RoundsController < ApplicationController
   def new
     @round = Round.new
+    score = @round.build_score
+    18.times { score.score_details.build }
   end
 
   def create
-    @round = current_user.rounds.new(round_params)
+    @round = Round.new(round_params)
+    @round.user = current_user
     if @round.save
       redirect_to rounds_path, notice: 'スコアが登録されました。'
     else
@@ -23,6 +26,6 @@ class RoundsController < ApplicationController
   private
 
   def round_params
-    params.require(:round).permit(:course, :round_memo, :round_date)
+    params.require(:round).permit(:course, :round_memo, :round_date, score_attributes: [score_details_attributes: [:hole_number, :strokes, :putts, :comments]])
   end
 end
