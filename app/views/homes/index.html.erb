@@ -1,7 +1,6 @@
 <%= render "shared/header" %>
 <div class='main'>
 
-  <%# カテゴリーの表示 %>
   <div class='select-reason-contents'>
     <h2 class='title'>
       category
@@ -9,31 +8,21 @@
     <ul class='reason-lists'>
       <li class='list'>
         <%= link_to golfs_path, class:"golf-top" do%>
-         <%= image_tag "furima-intro01.png", class:"list-pict" %>
+         <%= image_tag "golf.png", class:"list-pict" %>
         <% end %>
-        <h3 class='reason-list-text'>
-          <span class='reason-list-blue-text'>GOLF</span>
-        </h3>
       </li>
       <li class='list'>
         <%= link_to "#", class:"knitting-top" do%>
-          <%= image_tag "furima-intro02.png", class:"list-pict" %>
+          <%= image_tag "knitting.png", class:"list-pict" %>
         <% end %>
-        <h3 class='reason-list-text'>
-          <span class='reason-list-blue-text'>KNITTING</span>
-        </h3>
       </li>
       <li class='list'>
         <%= link_to "#", class:"fishing-top" do%>
-          <%= image_tag "furima-intro03.png", class:"list-pict" %>
+          <%= image_tag "fisshing.png", class:"list-pict" %>
         <% end %>
-        <h3 class='reason-list-text'>
-          <span class='reason-list-blue-text'>FISHING</span>
-        </h3>
       </li>
     </ul>
   </div>
-  <%# カテゴリーの表示部分 %>
 
 </div>
 <%= render "shared/footer" %>
