@@ -22,28 +22,32 @@
     </div>
   </div>
 
-  <!-- 目標スコア表示部分 -->
   <div class= "golf-index">
     <div class= "golf-box">
+      <!-- 目標スコア表示部分 -->
       <div>
         <h2>目標スコア</h2>
-        <%# <% if current_user.scores.where(goal: true).any? %>  
-          <%# <% current_user.scores.where(goal: true).each do |score| %>
-            <%# <p><%= score.score %></p> 
-          <%# <% end %> 
-        <%# <% else %> 
-          <%# <p>目標スコアが設定されていません。</p>
-        <% end %>
+          <% if @target.present? %>
+            <div class="target-score">
+              <div><%= @target.target_score %></div>
+              <div><%= @target.deadline %></div>
+            </div>
+          <% else %>
+            <p>目標スコアが設定されていません。</p>
+          <% end %>
       </div>
 
       <!-- ベストスコア表示部分 -->
       <div>
         <h2>ベストスコア</h2>
-        <%# <% if current_user.scores.any? %>
-          <%# <p><%= current_user.scores.order(score: :asc).first.score %></p> 
-        <%# <% else %>
-          <%# <p>ベストスコアが登録されていません。</p>
-        <% end %>  
+          <%# <% if @record.present? %>
+            <%# <div class="record">
+              <div><%= @record. %></div>
+              <%# <div><%= @record. %></div>
+            <%# </div>
+          <% else %>
+            <%# <p>スコアが登録されていません。</p>
+          <% end %>  
       </div>
 
       <!-- 練習日記表示部分 -->

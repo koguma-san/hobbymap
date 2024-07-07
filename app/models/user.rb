@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :target, optional: true
+  has_many :targets
   has_many :records
   has_many :rounds
 

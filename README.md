@@ -8,7 +8,7 @@
 
 ### Association
 
-- belongs_to :target
+- has_many   :targets
 - has_many   :records
 - has_many   :rounds
 
