@@ -11,7 +11,7 @@ class RoundsController < ApplicationController
     @round = Round.new(round_params)
     @round.user = current_user
     if @round.save
-      redirect_to rounds_path, notice: 'スコアが登録されました。'
+      redirect_to golfs_path, notice: 'スコアが登録されました。'
     else
       render :new
     end

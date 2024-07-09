@@ -37,6 +37,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_212114) do
     t.integer "strokes", null: false
     t.integer "putts", null: false
     t.text "comments"
+    t.integer "total_score", null: false
+    t.integer "total_putts", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["score_id"], name: "index_score_details_on_score_id"
