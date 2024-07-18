@@ -3,6 +3,7 @@ class GolfsController < ApplicationController
 
   def index
     @target = current_user.targets.last
+    @records = current_user.records
   end
 
   private

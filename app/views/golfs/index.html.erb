@@ -45,17 +45,17 @@
 
       <!-- 練習日記表示部分 -->
       <div>
-        <h2>練習日記</h2>
-        <%# <% if current_user.practices.any? %>
-        <%# <% current_user.practices.each do |practice| %>
-          <%# <div> %>
-            <%# <p><%= practice.created_at.strftime('%Y-%m-%d %H:%M') %></p>
-            <%# <p><%= practice.note %></p> 
-          <%# </div> 
-        <% end %> 
-        <%# <% else %> 
-          <%# <p>練習日記がありません。</p> %>
-        <%# <% end %>  
+        <h2>練習記録</h2>
+        <% if @records.any? %>
+          <% @records.each do |record| %>
+            <div> 
+              <p><%= record.created_at.strftime('%Y-%m-%d %H:%M') %></p>
+              <p><%= record.record_memo %></p> 
+            </div> 
+          <% end %> 
+        <% else %> 
+          <p>練習日記がありません。</p>
+        <% end %>  
       </div> 
     </div>
   </div>
