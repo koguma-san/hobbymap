@@ -18,7 +18,7 @@
   <%= round_form.fields_for :score do |score_form| %>
     <% score_form.object.score_details.each_with_index do |score_detail, i| %>
       <div class="form-group">
-        <%= score_form.label "ホール#{i + 1}のスコア" %>
+        <%= score_form.label "#{i + 1}ホール" %>
         <%= score_form.fields_for :score_details, score_detail do |detail_form| %>
           <div class="form-group">
             <%= detail_form.label :strokes, "スコア" %>
