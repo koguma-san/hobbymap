@@ -8,12 +8,13 @@
   <%= csrf_meta_tags %>
 </head>
 
-
 <body>
-  <h1>Golf Page</h1>
+  <div class="header-title">
+    <h1>Golf Page</h1>
+  </div>
   <div class="header">
     <div class="left-header">
-      <%= link_to 'Home', root_path, class: 'btn-secondary' %>
+      <%= link_to 'Home', root_path, class: 'btn-home' %>
     </div>
     <div class="right-header">
       <%= link_to 'goal', new_target_path, class: 'btn-goal' %>
@@ -24,31 +25,34 @@
 
   <div class= "golf-index">
     <div class= "golf-box">
-      <!-- 目標スコア表示部分 -->
-      <div>
-        <h2>目標スコア</h2>
-          <% if @target.present? %>
-            <div class="target-score">
-              <div><%= @target.target_score %></div>
-              <div><%= @target.deadline %></div>
+      <div class="scores-container">
+
+        <!-- 目標スコア表示部分 -->
+        <div class="target-score-box">
+          <h2>目標スコア</h2>
+            <% if @target.present? %>
+              <div class="target-score">
+                <div class="target-score-value"><%= @target.target_score %></div>
+                <div class="target-score-deadline">期限：<%= @target.deadline.strftime('%Y/%m/%d') %></div>
+              </div>
+            <% else %>
+              <p>目標スコアが設定されていません。</p>
+            <% end %>
+        </div>
+
+        <!-- ベストスコア表示部分 -->
+        <div class="best-score-box">
+          <h2>ベストスコア</h2>
+          <% if @best_round %>
+            <div>
+              <p>コース名: <%= @best_round.course %></p>
+              <p>スコア合計: <%= @best_round.score.score_details.sum(:strokes) %></p>
+              <p>ラウンド日: <%= @best_round.round_date.strftime('%Y/%m/%d') %></p>
             </div>
           <% else %>
-            <p>目標スコアが設定されていません。</p>
+            <p>まだラウンドが登録されていません。</p>
           <% end %>
-      </div>
-
-      <!-- ベストスコア表示部分 -->
-      <div>
-        <h2>ベストスコア</h2>
-        <% if @best_round %>
-          <div>
-            <p>コース名: <%= @best_round.course %></p>
-            <p>スコア合計: <%= @best_round.score.score_details.sum(:strokes) %></p>
-            <p>ラウンド日: <%= @best_round.round_date.strftime('%Y-%m-%d') %></p>
-          </div>
-        <% else %>
-          <p>まだラウンドが登録されていません。</p>
-        <% end %>
+        </div>
       </div>
 
       <!-- 練習日記表示部分 -->
@@ -56,10 +60,12 @@
         <h2>練習記録</h2>
         <% if @records.any? %>
           <% @records.each do |record| %>
-            <div> 
-              <p><%= record.created_at.strftime('%Y-%m-%d %H:%M') %></p>
-              <p><%= record.title %></p>
-              <p><%= record.record_memo %></p> 
+            <div class="record-box"> 
+              <div class="record-header">
+                <p class="record-date"><%= record.created_at.strftime('%Y/%m/%d') %></p>
+                <p class="record-title"><%= record.title %></p>
+              </div>
+              <p class="record-memo"><%= record.record_memo %></p> 
             </div> 
           <% end %> 
         <% else %> 

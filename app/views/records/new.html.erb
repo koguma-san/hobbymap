@@ -1,33 +1,57 @@
-<h1>練習記録登録</h1>
-<%= form_with(model: @record, local: true) do |form| %>
-  <% if @record.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@record.errors.count, "error") %> prohibited this record from being saved:</h2>
+<!DOCTYPE html>
+<html>
 
-      <ul>
-      <% @record.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<head>
+  <title>練習記録登録</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="header-title">
+    <h1>Practice record</h1>
+  </div>
+  <div class="header">
+    <div class="left-header">
+      <%= link_to 'Golf Page', golfs_path, class: 'btn-golftop' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :record_date %>
-    <%= form.date_field :record_date %>
   </div>
+  <div class="golf-index">
+    <div class="golf-box">
+      <%= form_with(model: @record, local: true) do |form| %>
+        <% if @record.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@record.errors.count, "error") %> prohibited this record from being saved:</h2>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+            <ul>
+            <% @record.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-  <div class="field">
-    <%= form.label :record_memo %>
-    <%= form.text_area :record_memo %>
-  </div>
+        <div class="field">
+          <%= form.label :record_date %>
+          <%= form.date_field :record_date %>
+        </div>
 
-  <div class="actions">
-    <%= form.submit %>
+        <div class="field">
+          <%= form.label :title %>
+          <%= form.text_field :title %>
+        </div>
+
+        <div class="field">
+          <%= form.label :record_memo %>
+          <%= form.text_area :record_memo %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</body>
+</html>

@@ -1,28 +1,52 @@
-<h1>目標スコア登録</h1>
-<%= form_with(model: @target, local: true) do |form| %>
-  <% if @target.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@target.errors.count, "error") %> prohibited this target from being saved:</h2>
+<!DOCTYPE html>
+<html>
 
-      <ul>
-      <% @target.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<head>
+  <title>目標スコア登録</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="header-title">
+    <h1>Teget score</h1>
+  </div>
+  <div class="header">
+    <div class="left-header">
+      <%= link_to 'Golf Page', golfs_path, class: 'btn-golftop' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :target_score %>
-    <%= form.number_field :target_score %>
   </div>
 
-  <div class="field">
-    <%= form.label :deadline %>
-    <%= form.date_field :deadline %>
-  </div>
+  <div class="golf-index">
+    <div class="golf-box">
+      <%= form_with(model: @target, local: true) do |form| %>
+        <% if @target.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@target.errors.count, "error") %> prohibited this target from being saved:</h2>
+            <ul>
+            <% @target.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
+        <div class="field">
+          <%= form.label :target_score %>
+          <%= form.number_field :target_score %>
+        </div>
+
+        <div class="field">
+          <%= form.label :deadline %>
+          <%= form.date_field :deadline %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</body>
+</html>

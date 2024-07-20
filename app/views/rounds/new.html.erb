@@ -1,54 +1,79 @@
-<h1>スコア登録ページ</h1>
-<%= form_with(model: @round, local: true) do |round_form| %>
-  <div class="form-group">
-    <%= round_form.label :course, 'コース名' %>
-    <%= round_form.text_field :course, class: 'form-control' %>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>スコア登録</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="header-title">
+    <h1>Round score</h1>
+  </div>
+  <div class="header">
+    <div class="left-header">
+      <%= link_to 'Golf Page', golfs_path, class: 'btn-golftop' %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= round_form.label :round_date, 'ラウンド日' %>
-    <%= round_form.date_field :round_date, class: 'form-control' %>
-  </div>
+  <div class="golf-index">
+    <div class="golf-box">
+      <%= form_with(model: @round, local: true) do |round_form| %>
+        <div class="form-group">
+          <%= round_form.label :course, 'コース名' %>
+          <%= round_form.text_field :course, class: 'form-control' %>
+        </div>
 
-  <div class="form-group">
-    <%= round_form.label :round_memo, 'メモ' %>
-    <%= round_form.text_area :round_memo, class: 'form-control' %>
-  </div>
+        <div class="form-group">
+          <%= round_form.label :round_date, 'ラウンド日' %>
+          <%= round_form.date_field :round_date, class: 'form-control' %>
+        </div>
 
-  <%= round_form.fields_for :score do |score_form| %>
-    <% score_form.object.score_details.each_with_index do |score_detail, i| %>
-      <div class="form-group">
-        <%= score_form.label "#{i + 1}ホール" %>
-        <%= score_form.fields_for :score_details, score_detail do |detail_form| %>
-          <div class="form-group">
-            <%= detail_form.label :strokes, "スコア" %>
-            <%= detail_form.number_field :strokes, class: 'form-control' %>
-          </div>
+        <div class="form-group">
+          <%= round_form.label :round_memo, 'メモ' %>
+          <%= round_form.text_area :round_memo, class: 'form-control' %>
+        </div>
 
-          <div class="form-group">
-            <%= detail_form.label :putts, "パット数" %>
-            <%= detail_form.number_field :putts, class: 'form-control' %>
-          </div>
+        <%= round_form.fields_for :score do |score_form| %>
+          <% score_form.object.score_details.each_with_index do |score_detail, i| %>
+            <div class="form-group">
+              <%= score_form.label "#{i + 1}ホール" %>
+              <%= score_form.fields_for :score_details, score_detail do |detail_form| %>
+                <div class="form-group">
+                  <%= detail_form.label :strokes, "スコア" %>
+                  <%= detail_form.number_field :strokes, class: 'form-control' %>
+                </div>
 
-          <div class="form-group">
-            <%= detail_form.label :comments, "コメント" %>
-            <%= detail_form.text_area :comments, class: 'form-control' %>
-          </div>
+                <div class="form-group">
+                  <%= detail_form.label :putts, "パット数" %>
+                  <%= detail_form.number_field :putts, class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                  <%= detail_form.label :comments, "コメント" %>
+                  <%= detail_form.text_area :comments, class: 'form-control' %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
-      </div>
-    <% end %>
-  <% end %>
 
-  <div class="form-group">
-    <label>全ホールの合計スコア: <span id="total_strokes"><%= @round.total_strokes || 0 %></span></label>
+        <div class="form-group">
+          <label>全ホールの合計スコア: <span id="total_strokes"><%= @round.total_strokes || 0 %></span></label>
+        </div>
+
+        <div class="form-group">
+          <label>全ホールの合計パット数: <span id="total_putts"><%= @round.total_putts || 0 %></span></label>
+        </div>
+
+        <div class="form-group">
+          <%= round_form.submit '登録', class: 'btn-primary' %>
+        </div>
+
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label>全ホールの合計パット数: <span id="total_putts"><%= @round.total_putts || 0 %></span></label>
-  </div>
-
-  <div class="form-group">
-    <%= round_form.submit '登録', class: 'btn btn-primary' %>
-  </div>
-
-<% end %>
+</body>
+</html>
