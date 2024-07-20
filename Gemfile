@@ -68,3 +68,7 @@ end
 
 gem 'devise'
 gem "gretel"
+
+group :production do
+  gem 'pg'
+end

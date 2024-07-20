@@ -1,22 +1,29 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
-<header class='top-page-header'>
-  <div class='nav'>
-    <ul class='lists-left'>
-      <li>
-        <%= link_to root_path, class:"logo-top" do%>
-          <%= image_tag "logo", class:"logo-pict" %>
-        <% end %>
-      </li>
-    </ul>
-    <ul class='lists-right'>
-      <% if user_signed_in? %>
-        <li><%= link_to current_user.name, "#", class: "user-name" %></li> 
-        <li><%= link_to 'LOG OUT', destroy_user_session_path, data: { turbo_method: :delete }, class: "logout" %></li>
+<!DOCTYPE html>
 
-      <% else %>  
-        <li><%= link_to 'LOGIN!', new_user_session_path, class: "login" %></li>
-        <li><%= link_to 'SIGN UP!', new_user_registration_path, class: "sign-up" %></li>
-      <% end %> 
-    </ul>
-  </div>
-</header>
+<body>
+  <header class='top-page-header'>
+    <div class="top-image-container">
+      <%= image_tag "top.jpg", alt: "Top Image", class: "top-image" %>
+    </div>
+    <div class='nav'>
+      <ul class='lists-left'>
+        <li>
+          <%= link_to root_path, class:"logo-top" do%>
+            <%= image_tag "logo", class:"logo-pict" %>
+          <% end %>
+        </li>
+      </ul>
+      <ul class='lists-right'>
+        <% if user_signed_in? %>
+          <li><%= link_to current_user.name, "#", class: "user-name" %></li> 
+          <li><%= link_to 'LOG OUT', destroy_user_session_path, data: { turbo_method: :delete }, class: "logout" %></li>
+
+        <% else %>  
+          <li><%= link_to 'LOGIN!', new_user_session_path, class: "login" %></li>
+          <li><%= link_to 'SIGN UP!', new_user_registration_path, class: "sign-up" %></li>
+        <% end %> 
+      </ul>
+    </div>
+  </header>
+</body>
