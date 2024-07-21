@@ -1,10 +1,14 @@
 <%= render "shared/header" %>
+
 <div class='main'>
+  <div class="top-logo-container">
+    <%= image_tag "top-logo.png", class: "top-logo" %>
+  </div>
 
   <div class='select-reason-contents'>
-    <h2 class='title'>
-      category
-    </h2>
+    <div class="category-header">
+      <h2 class='title'>category</h2>
+    </div>
     <ul class='reason-lists'>
       <li class='list'>
         <%= link_to golfs_path, class:"golf-top" do%>
