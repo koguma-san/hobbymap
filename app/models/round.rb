@@ -14,4 +14,9 @@ class Round < ApplicationRecord
   def total_putts
     score.score_details.sum(:putts)
   end
+
+  def calculate_totals
+    self.total_strokes = total_strokes
+    self.total_putts = total_putts
+  end
 end

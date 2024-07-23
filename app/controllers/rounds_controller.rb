@@ -4,7 +4,10 @@ class RoundsController < ApplicationController
   def new
     @round = Round.new
     score = @round.build_score
-    18.times { score.score_details.build }
+    18.times do |i|
+      score_detail = score.score_details.build
+      score_detail.hole_number = i + 1
+    end
   end
 
   def create
@@ -13,6 +16,7 @@ class RoundsController < ApplicationController
     if @round.save
       redirect_to golfs_path, notice: 'スコアが登録されました。'
     else
+      Rails.logger.debug(@round.errors.full_messages)
       render :new
     end
   end

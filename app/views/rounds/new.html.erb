@@ -39,20 +39,23 @@
         <%= round_form.fields_for :score do |score_form| %>
           <% score_form.object.score_details.each_with_index do |score_detail, i| %>
             <div class="form-group">
-              <%= score_form.label "#{i + 1}ホール" %>
               <%= score_form.fields_for :score_details, score_detail do |detail_form| %>
                 <div class="form-group">
-                  <%= detail_form.label :strokes, "スコア" %>
+                  <%= detail_form.label :hole_number, "ホール#{i + 1}" %>
+                  <%= detail_form.hidden_field :hole_number, value: (i + 1) %>
+                </div>
+                <div class="form-group">
+                  <%= detail_form.label :strokes, "スコア (ホール#{i + 1})" %>
                   <%= detail_form.number_field :strokes, class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
-                  <%= detail_form.label :putts, "パット数" %>
+                  <%= detail_form.label :putts, "パット数 (ホール#{i + 1})" %>
                   <%= detail_form.number_field :putts, class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
-                  <%= detail_form.label :comments, "コメント" %>
+                  <%= detail_form.label :comments, "コメント (ホール#{i + 1})" %>
                   <%= detail_form.text_area :comments, class: 'form-control' %>
                 </div>
               <% end %>
