@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_04_212114) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_28_002716) do
   create_table "records", charset: "utf8mb4", force: :cascade do |t|
     t.date "record_date", null: false
     t.string "title", null: false
@@ -28,6 +28,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_212114) do
     t.date "round_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "total_strokes", default: 0, null: false
+    t.integer "total_putts", default: 0, null: false
     t.index ["user_id"], name: "index_rounds_on_user_id"
   end
 
@@ -37,8 +39,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_212114) do
     t.integer "strokes", null: false
     t.integer "putts", null: false
     t.text "comments"
-    t.integer "total_score", null: false
-    t.integer "total_putts", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["score_id"], name: "index_score_details_on_score_id"

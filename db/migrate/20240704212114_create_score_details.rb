@@ -6,9 +6,6 @@ class CreateScoreDetails < ActiveRecord::Migration[7.1]
       t.integer :strokes      , null: false
       t.integer :putts        , null: false
       t.text :comments
-      t.integer :total_score  , null: false
-      t.integer :total_putts  , null: false
-
       t.timestamps
     end
   end
