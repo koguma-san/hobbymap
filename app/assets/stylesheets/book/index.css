@@ -21,14 +21,8 @@
   margin-left: 30px;
 }
 
-.right-header {
-  display: flex;
-  list-style: none;
-  margin-right: 30px;
-}
-
 /* ヘッダーボタン */
-.btn-home, .btn-new-book {
+.btn-home {
   display: block;
   text-align: center;
   vertical-align: middle;
@@ -44,17 +38,13 @@
   border-radius: 18px;
 }
 
-.btn-new-book {
-  background-color: #e0aaff;
-}
-
-.btn-home:hover, .btn-new-book:hover {
+.btn-home:hover {
   color: #fff;
   background: #000000;
 }
 
 /* ボディー */
-.books-index {
+.book-index {
   background-color: #f1efe7;
   width: 100vw;
   display: flex;
@@ -63,7 +53,7 @@
   padding: 5vh 0;
 }
 
-.books-box {
+.book-box {
   background-color: #FFF;
   width: 80vw;
   max-width: 1200px;
@@ -72,7 +62,7 @@
   border-radius: 10px;
 }
 
-.new-book-form, .books-list {
+.new-book-form {
   width: 100%;
   margin-bottom: 2rem;
 }
@@ -130,40 +120,6 @@
   background-color: #032f1b;
 }
 
-.books-list table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 2rem;
-}
-
-.books-list th, .books-list td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-.books-list th {
-  background-color: #054331;
-  color: white;
-}
-
-.books-list tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.books-list tr:hover {
-  background-color: #ddd;
-}
-
-.books-list td a {
-  text-decoration: none;
-  color: #054331;
-}
-
-.books-list td a:hover {
-  text-decoration: underline;
-}
-
 #error_explanation {
   background-color: #f8d7da;
   color: #721c24;
@@ -180,4 +136,36 @@
 #error_explanation ul {
   margin: 0;
   padding-left: 1.5em;
+}
+
+/* 一覧表示 */
+.books-container {
+  width: 100%;
+}
+
+.book-item {
+  padding: 1rem 0;
+}
+
+.book-item hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.book-info {
+  display: flex;
+  align-items: center;
+}
+
+.book-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #000000;
+}
+
+.book-rating {
+  margin-left: 30px;
+  color: #666;
 }
