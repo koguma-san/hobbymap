@@ -2,3 +2,6 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "round"
+import "jquery"
+
+window.$ = window.jQuery = require("jquery");

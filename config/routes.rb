@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :records, only: [:index, :new, :create]
   resources :targets, only: [:index, :new, :create]
   resources :rounds, only: [:new, :create, :index, :show]
+  resources :books, only: [:new, :index, :show, :create]
 end
