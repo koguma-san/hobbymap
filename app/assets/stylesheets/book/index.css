@@ -14,7 +14,7 @@
   text-align: center;
   padding: 1rem 0;
   font-size: xx-large;
-  color: #054331;
+  color: #2D5193;
 }
 
 .left-header {
@@ -106,7 +106,7 @@
 }
 
 .actions input[type="submit"] {
-  background-color: #054331;
+  background-color: #2D5193;
   color: #fff;
   border: none;
   padding: 0.75em 1.5em;
@@ -145,6 +145,8 @@
 
 .book-item {
   padding: 1rem 0;
+  display: flex;
+  flex-direction: column; 
 }
 
 .book-item hr {
@@ -156,16 +158,36 @@
 
 .book-info {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 .book-title {
   font-weight: bold;
   font-size: 1.2em;
-  color: #000000;
+  width: 30%; /* 左側に約1/3のスペースを確保 */
 }
 
+.book-detail {
+  display: flex;
+  width: 70%; /* 右側に残りのスペースを確保 */
+}
+
+.book-author,
 .book-rating {
-  margin-left: 30px;
+  width: 50%; /* 左右に二等分 */
+  text-align: left; 
+}
+
+.book-review{
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.book-registration-date {
+  text-align: right;
   color: #666;
+  margin-top: 0.5rem;
+  width: 100%;
 }

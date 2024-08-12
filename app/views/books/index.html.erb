@@ -73,14 +73,17 @@
         <% @books.each do |book| %>
           <div class="book-item">
             <hr>
-            <p class="book-info">
+            <div class="book-info">
               <span class="book-title">
-                <%= link_to book.book_title, "#" %>
+                <%= book.book_title %>
               </span>
-              <span class="book-rating">
-                Rating: <%= book.rating %>
-              </span>
-            </p>
+            </div>
+            <div class="book-detail">
+              <span class="book-author">Author: <%= book.author %></span>
+              <span class="book-rating">Rating: <%= book.rating %></span>
+            </div>
+            <div class="book-review">Review: <%= book.review %></div>
+            <div class="book-registration-date">Registration Date: <%= book.registration_date %></div>
           </div>
         <% end %>
       </div>
