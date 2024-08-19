@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Knittings Page</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag 'knitting/index', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="header-title">
+    <h1>Knitting</h1>
+  </div>
+  <div class="header">
+    <div class="left-header">
+      <%= link_to 'Home', root_path, class: 'btn-home' %>
+    </div>
+  </div>
+
+  <div class="knitting-index">
+    <div class="knitting-box">
+
+      <!--- 投稿部分　--->
+      <div class="new-knitting-form">
+        <%= form_with(model: @knitting, local: true) do |form| %>
+
+          <div class="field">
+            <%= form.label :work %>
+            <%= form.text_field :work %>
+          </div>
+
+            <%= form.text_field :image, placeholder: "Image Url" %>
+
+          <div class="field">
+            <%= form.label :recipe %>
+            <%= form.text_area :recipe %>
+          </div>
+
+          <div class="field">
+            <%= form.label :yarn %>
+            <%= form.text_field :yarn %>
+          </div>
+
+          <div class="field">
+            <%= form.label :hook_number %>
+            <%= form.text_field :hook_number %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit "Save" %>
+          </div>
+        <% end %>
+
+      <!--- 一覧表示　--->
+      <div class="knittings-container">
+        <h2>Work List</h2>
+        <% @knittings.each do |knitting| %>
+          <div class="knitting-item">
+            <hr>
+            <div class="knitting-info">
+              <span class="knitting-work">
+                <%= knitting.work %>
+              </span>
+            </div>
+            <div class="knitting-detail">
+              <%= image_tag knitting.image, class: "item-img" %>
+              <span class="knitting-recipe">recipe: <%= knitting.recipe %></span>
+              <span class="knitting-yarn">yarn: <%= knitting.yarn %></span>
+              <span class="knitting-hooknumber">hook_No: <%= knitting.hook_number %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

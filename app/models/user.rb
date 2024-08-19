@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :targets
   has_many :records
   has_many :rounds
+  has_many :knittings
 
   validates :name, presence: true
 end
