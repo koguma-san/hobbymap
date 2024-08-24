@@ -76,3 +76,6 @@ group :production do
   gem 'pg'
 end
 gem "webpacker", "~> 5.4"
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
