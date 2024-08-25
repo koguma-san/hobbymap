@@ -78,6 +78,70 @@
   color: #333;
 }
 
-.actions {
-  color: #F27108;;
+.actions input[type="submit"] {
+  background-color: #F27108;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.actions input[type="submit"]:hover {
+  background-color: #d96107; 
+}
+
+.knitting-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.knitting-detail {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.item-img {
+  width: 400px; /* 画像サイズを調整 */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-right: 20px; /* 画像とテキストの間に余白を作る */
+}
+
+.knitting-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px; /* 画像の高さと揃える */
+}
+
+.knitting-text {
+  background-color: #f9f9f9;
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-top: 1rem;
+}
+
+.knitting-work {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.knitting-recipe,
+.knitting-yarn,
+.knitting-hooknumber {
+  display: block;
+  margin-bottom: 0.5rem;
 }

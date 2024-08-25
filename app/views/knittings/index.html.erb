@@ -68,10 +68,12 @@
               </span>
             </div>
             <div class="knitting-detail">
-              <%= image_tag knitting.image.variant(resize: '300x300'), class: "item-img" if knitting.image.attached? %>
-              <span class="knitting-recipe">recipe: <%= knitting.recipe %></span>
-              <span class="knitting-yarn">yarn: <%= knitting.yarn %></span>
-              <span class="knitting-hooknumber">hook_No: <%= knitting.hook_number %></span>
+              <%= image_tag knitting.image, class: "item-img" if knitting.image.attached? %>
+              <div class="knitting-text">
+                <span class="knitting-recipe">recipe: <%= knitting.recipe %></span>
+                <span class="knitting-yarn">yarn: <%= knitting.yarn %></span>
+                <span class="knitting-hooknumber">hook_No: <%= knitting.hook_number %></span>
+              </div>
             </div>
           </div>
         <% end %>
